@@ -26,7 +26,9 @@ jobs:
         mkdir ../temp/
         mv * ../temp/
         mv ../temp/docs-site/ .
-        mv docs-site/site/* .
+        cd docs-site
+        mv site/* .
+        cd ..
         # mkdir assets
         # mv ../temp/assets/images assets/
         # cp -a ../temp/docs-site/site/. .
