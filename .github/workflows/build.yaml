@@ -29,7 +29,8 @@ jobs:
         # mkdir assets
         # mv ../temp/assets/images assets/
         # rm -rf ../temp/
-        cp -a docs-site/site/. .
+        # cp -a docs-site/site/. .
+        mv docs-site/site/. .
 
     - name: Git Commit and Push
       run: |
