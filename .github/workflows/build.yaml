@@ -31,4 +31,4 @@ jobs:
         # git config user.email ${{ github.event.pusher.email }}
         git add .
         git commit -m "Site content updated - ci skip"
-        git push origin gh-pages
+        git push origin main
