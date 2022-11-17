@@ -8,9 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'ci skip')"
     steps:
-    - uses: actions/checkout@v2
+    - name: Clone Repository
+      uses: actions/checkout@v2
       with:
         token: ${{secrets.GITHUB_TOKEN}}
+
     - name: Set MkDocs Material Version
       run: echo MKDOCS_MATERIAL_VERSION=latest >> $GITHUB_ENV
 
@@ -18,13 +20,15 @@ jobs:
       run: |
         docker pull squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION
         docker run -v ${{ github.workspace }}/docs-site:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+
     - name: Clean-up and Copy Build Output
       run: |
         mkdir ../temp/
         mv * ../temp/
-        mv ../temp/docs-site/ .
+        mv ../temp/docs-site/docs/ .
         rm -rf ../temp/
         cp -a docs-site/site/. .
+
     - name: Git Commit and Push
       run: |
         git config user.name ${{ github.actor }}
