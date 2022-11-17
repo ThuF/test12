@@ -26,9 +26,9 @@ jobs:
         mkdir ../temp/
         mv * ../temp/
         mv ../temp/docs-site/docs/ .
-        mkdir assets
-        mv ../temp/assets/images assets/
-        rm -rf ../temp/
+        # mkdir assets
+        # mv ../temp/assets/images assets/
+        # rm -rf ../temp/
         cp -a docs-site/site/. .
 
     - name: Git Commit and Push
