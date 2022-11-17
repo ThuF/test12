@@ -26,7 +26,7 @@ jobs:
         mkdir ../temp/
         mv * ../temp/
         mv ../temp/docs-site/ .
-        mv docs-site/site/* .
+        cp -a docs-site/site/. .
         # mkdir assets
         # mv ../temp/assets/images assets/
         # cp -a ../temp/docs-site/site/. .
@@ -37,5 +37,6 @@ jobs:
         git config user.name ${{ github.actor }}
         # git config user.email ${{ github.event.pusher.email }}
         git add .
+        git rm -rf docs-site/site/
         git commit -m "Site content updated - ci skip"
         git push origin main
