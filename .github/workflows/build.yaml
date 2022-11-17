@@ -27,8 +27,8 @@ jobs:
         cp -a docs-site/site/. .
     - name: Git Commit and Push
       run: |
-        # git config user.name ${{secrets.GH_USER_NAME}}
-        # git config user.email ${{secrets.GH_USER_EMAIL}}
+        git config user.name ${{ github.actor }}
+        # git config user.email ${{ github.event.pusher.email }}
         git add .
         git commit -m "Site content updated - ci skip"
         git push origin gh-pages
