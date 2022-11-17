@@ -35,8 +35,7 @@ jobs:
     - name: Git Commit and Push
       run: |
         git config user.name ${{ github.actor }}
-        # git config user.email ${{ github.event.pusher.email }}
+        git config user.email ${{ github.event.pusher.email }}
         git add .
-        git rm -rf docs-site/site/
         git commit -m "Site content updated - ci skip"
         git push origin main
