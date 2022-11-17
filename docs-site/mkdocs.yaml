@@ -1,0 +1,36 @@
+site_name: Team Curiosity
+site_url: https://thuf.github.io/test12/
+
+theme:
+  favicon: /img/favicon.ico
+  logo: /img/xsk-logo-white-tr.png
+  name: mkdocs
+  # custom_dir: overrides
+  features:
+    - navigation.instant
+    - navigation.indexes
+
+# extra_css:
+#     - css/extra.css
+
+markdown_extensions:
+    - attr_list
+    - pymdownx.snippets
+    - pymdownx.highlight:
+        linenums: false
+    - pymdownx.keys
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true
+    - pymdownx.emoji
+    - meta
+    - footnotes
+    - admonition
+    - pymdownx.details
+
+repo_url: https://github.com/ThuF/test12
+repo_name: ThuF/test12
+edit_uri: edit/main/
+
+# copyright: Copyright (c) ...
