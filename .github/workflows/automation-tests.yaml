@@ -1,0 +1,13 @@
+name: Automation Tests on PR Comment
+on:
+  issue_comment:                                     
+    types: [created, edited, deleted]
+
+jobs:
+  automation-tests:
+    runs-on: ubuntu-latest
+    if: github.event.issue.pull_request
+    steps:
+    - name: Run Automation Tests
+      if: contains(github.event.comment.body, '/tests')
+      run: echo Run Automation Tests
