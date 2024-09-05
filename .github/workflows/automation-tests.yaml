@@ -1,11 +1,12 @@
 name: Automation Tests on PR Comment
 
-on: pull_request_review_comment
+# on: pull_request_review_comment
+on: pull_request_review
 
 jobs:
   automation-tests:
     runs-on: ubuntu-latest
-    if: contains(github.event.comment.body, '/run-automation-tests')
+    # if: contains(github.event.comment.body, '/run-automation-tests')
     steps:
     - name: Dump GitHub context
       env:
