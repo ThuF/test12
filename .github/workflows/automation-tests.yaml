@@ -6,8 +6,7 @@ on:
 jobs:
   automation-tests:
     runs-on: ubuntu-latest
-    if: github.event.issue.pull_request
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/tests')
     steps:
     - name: Run Automation Tests
-      if: contains(github.event.comment.body, '/tests')
       run: echo Run Automation Tests
