@@ -3,7 +3,9 @@ name: Automation Tests on PR Comment
 #   issue_comment:                                     
 #     types: [created, edited, deleted]
 
-on: pull_request_review_comment
+on:
+  pull_request_review_comment:
+    types: [created, deleted]
 
 jobs:
   automation-tests:
