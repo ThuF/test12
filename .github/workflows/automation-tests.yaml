@@ -7,6 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.review.body, '/run-automation-tests')
     steps:
+    - name: Set Environment Variables
+      run: |
+          set -x
+
+          export RESOURCE_ID=pr$(( ${{ github.event.pull_request.number }} % 10 ))
+          echo "RESOURCE_ID=$RESOURCE_ID" >> $GITHUB_OUTPUT
+          echo "- Resource ID: $RESOURCE_ID" >> $GITHUB_STEP_SUMMARY
+
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
