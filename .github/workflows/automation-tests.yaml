@@ -2,14 +2,16 @@ name: Automation Tests on PR Comment
 on:
   issue_comment:                                     
     types: [created, edited, deleted]
+  pull_request:
+    types: [pull_request_review_comment]
 
 jobs:
   automation-tests:
     runs-on: ubuntu-latest
-    if: github.event.issue.pull_request && contains(github.event.comment.body, '/tests')
+    # if: github.event.issue.pull_request && contains(github.event.comment.body, '/tests')
     steps:
-    - name: Run Automation Tests
-      run: echo Run Automation Tests
+    # - name: Run Automation Tests
+    #   run: echo Run Automation Tests
 
     - name: Dump GitHub context
       env:
